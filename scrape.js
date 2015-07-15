@@ -5,7 +5,7 @@ var fs = require('fs')
   , async = require('async')
   , cheerio = require('cheerio')
   , _ = require('lodash')
-  , folder = path.join(path.dirname(require.main.filename), process.argv[2]);
+  , folder = path.resolve(process.argv[2] || '.');
 
 fs.readdir(folder, function(err, filenames) {
   if (err) throw err;
