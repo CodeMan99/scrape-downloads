@@ -11,6 +11,9 @@ def main():
     )
 
     count = math.ceil(len(files) / 30)
+    if count <= 1:
+        raise RuntimeError('There are already less than 30 files in current folder.')
+
     for name in range(count):
         os.makedirs(determine_folder(name, count), exist_ok=True)
 
