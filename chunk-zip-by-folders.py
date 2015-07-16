@@ -15,7 +15,7 @@ def main():
         os.makedirs(determine_folder(name, count), exist_ok=True)
 
     for i, filename in enumerate(files):
-        print(filename, '->',
+        print(i + 1, filename, '->',
             shutil.move(filename, determine_folder(i, count))
         )
 
