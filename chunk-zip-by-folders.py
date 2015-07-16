@@ -12,7 +12,7 @@ def main():
 
     count = math.ceil(len(files) / 30)
     for name in range(count):
-        os.mkdir(determine_folder(name, count))
+        os.makedirs(determine_folder(name, count), exist_ok=True)
 
     for i, filename in enumerate(files):
         print(filename, '->',
