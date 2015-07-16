@@ -11,12 +11,12 @@ def main():
     )
 
     count = math.ceil(len(files) / 30)
-    for folder_name in range(count):
-        os.mkdir(determine_folder(folder_name, count))
+    for name in range(count):
+        os.mkdir(determine_folder(name, count))
 
-    for num, file in enumerate(files):
-        print(file, '->',
-            shutil.move(file, determine_folder(num, count))
+    for i, filename in enumerate(files):
+        print(filename, '->',
+            shutil.move(filename, determine_folder(i, count))
         )
 
 def determine_folder(index, folder_count):
