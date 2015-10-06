@@ -11,13 +11,19 @@ def main():
     )
 
     count = math.ceil(len(files) / 30)
-    for folder_name in range(1, count + 1):
-        os.mkdir(str(folder_name))
+    if count <= 1:
+        raise RuntimeError('There are already less than 30 files in current folder.')
 
-    for num, file in enumerate(files):
-        print(file, '->',
-            shutil.move(file, str(num % count + 1))
+    for name in range(count):
+        os.makedirs(determine_folder(name, count), exist_ok=True)
+
+    for i, filename in enumerate(files):
+        print(i + 1, filename, '->',
+            shutil.move(filename, determine_folder(i, count))
         )
+
+def determine_folder(index, folder_count):
+     return str(index % folder_count + 1)
 
 if __name__ == "__main__":
     main()
