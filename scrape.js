@@ -14,11 +14,7 @@ fs.readdir(folder, function(err, filenames) {
 });
 
 function readFile(filename, callback) {
-  fs.readFile(path.join(folder, filename), {encoding: 'utf8'}, function(err, fileData) {
-    if (err) return callback(err);
-
-    callback(null, fileData);
-  });
+  fs.readFile(path.join(folder, filename), {encoding: 'utf8'}, callback);
 }
 
 function processPages(err, pages) {
